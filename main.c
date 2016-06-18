@@ -27,15 +27,6 @@
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
 
 
-void main(void) {
-    initPWM();
-    setPWMDutyCycle(125);
-    
-    enablePWM();
-    while(1);
-}
-
-
 /**
  * According to the datasheet the period is given by the following
  *   Period = (PR2 + 1) . 4. Tosc . T2 Prescaler
@@ -73,4 +64,13 @@ void setPWMDutyCycle(unsigned int dutyCycleValue) {
 void enablePWM() {
     T2CON |= 0x04;
 }
+
+void main(void) {
+    initPWM();
+    setPWMDutyCycle(500);
+    
+    enablePWM();
+    while(1);
+}
+
 
